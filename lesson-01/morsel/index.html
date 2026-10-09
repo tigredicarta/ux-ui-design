@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Morsel · food delivery</title>
+<style>
+:root{
+  --page:#ECE7DF;
+  --ink:#1F1B16;
+  --muted:#756B5E;
+  --paper:#FBF6EF;
+  --white:#FFFFFF;
+  --line:#E6DCCD;
+  --brand:#D9481F;
+  --brand-dark:#B43A17;
+  --ok:#2C7A4B;
+  --font:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --font-head:Georgia,"Times New Roman",serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%}
+body{background:var(--page);color:var(--ink);font:15px/1.45 var(--font)}
+button{font:inherit;color:inherit;cursor:pointer}
+button:focus-visible,a:focus-visible{outline:3px solid #2B5FD9;outline-offset:2px}
+
+.page{min-height:100%;display:grid;gap:24px;align-items:center;justify-items:center;padding:24px 16px;
+  grid-template-columns:minmax(0,1fr)}
+.phone{width:min(100%,390px);height:min(780px,calc(100dvh - 48px));min-height:520px;background:#14110E;border-radius:44px;padding:10px;
+  box-shadow:0 30px 60px -28px rgba(40,25,10,.6)}
+.screen{position:relative;height:100%;border-radius:34px;overflow:hidden;background:var(--paper);display:flex;flex-direction:column}
+.card{width:min(100%,390px);background:var(--white);border:1px solid var(--line);border-radius:16px;padding:18px;display:flex;flex-direction:column;gap:12px}
+.card h1{margin:0;font:700 22px/1.15 var(--font-head)}
+.card p{margin:0;color:var(--muted);font-size:14px}
+.card ol{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px;font-size:14.5px}
+.card .label{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.jumps{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.jumps .label{flex-basis:100%;margin-top:6px}
+[hidden]{display:none!important}
+.jumps button{border:1px solid var(--line);background:var(--paper);border-radius:999px;padding:7px 12px;font-size:13px}
+.jumps button:hover{border-color:var(--muted)}
+.jumps .restart{background:var(--ink);border-color:var(--ink);color:#fff;font-weight:600}
+
+@media (min-width:860px){
+  .page{grid-template-columns:390px minmax(280px,380px);justify-content:center;gap:48px;padding:32px}
+  .phone{width:390px}
+  .card{width:100%}
+}
+@media (max-width:480px){
+  .page{padding:0 0 24px;gap:16px;align-items:start}
+  .phone{width:100%;height:100dvh;min-height:480px;border-radius:0;padding:0;box-shadow:none}
+  .screen{border-radius:0}
+  .card{width:calc(100% - 32px)}
+}
+
+.header{flex:none;display:flex;align-items:center;gap:8px;padding:14px 16px 10px;min-height:56px}
+.header h2{flex:1;margin:0;font:700 19px/1.2 var(--font-head);text-align:center}
+.round{flex:none;width:38px;height:38px;border:0;border-radius:50%;background:var(--white);display:grid;place-items:center;font-size:20px;line-height:1}
+.gap{flex:none;width:38px}
+.body{flex:1;overflow-y:auto;padding:4px 16px 18px;display:flex;flex-direction:column;gap:12px}
+.bar{flex:none;padding:10px 16px 16px;border-top:1px solid var(--line);background:var(--paper)}
+.btn{width:100%;border:0;border-radius:14px;background:var(--brand);color:#fff;font-weight:700;font-size:16px;padding:14px 16px;display:flex;justify-content:space-between;gap:10px}
+.btn:active{background:var(--brand-dark)}
+.btn[disabled]{opacity:.7;cursor:progress}
+.btn.center{justify-content:center}
+.nav{flex:none;display:flex;border-top:1px solid var(--line);background:var(--white)}
+.nav button{flex:1;border:0;background:transparent;padding:9px 4px 12px;font-size:11.5px;color:var(--muted);display:flex;flex-direction:column;align-items:center;gap:2px}
+.nav button b{font-size:19px;font-weight:400;line-height:1}
+.nav button.active{color:var(--brand);font-weight:700}
+
+.address{padding:16px 16px 8px}
+.address small{display:block;color:var(--muted);font-size:12px}
+.address strong{font:700 20px/1.2 var(--font-head)}
+.live-order{border:0;width:100%;text-align:left;background:var(--ink);color:#fff;border-radius:14px;padding:12px 14px;display:flex;justify-content:space-between;align-items:center;font-weight:600}
+.place{border:0;width:100%;text-align:left;background:var(--white);border-radius:16px;padding:0;overflow:hidden;box-shadow:0 1px 0 var(--line)}
+.place .photo{height:84px;background:var(--c);display:flex;align-items:flex-end;padding:10px 12px;color:#fff;font:700 26px/1 var(--font-head)}
+.place .info{padding:10px 12px 12px;display:flex;justify-content:space-between;gap:8px;align-items:baseline}
+.place .info b{font-size:15.5px}
+.place .info span{color:var(--muted);font-size:12.5px;white-space:nowrap}
+.place .info small{display:block;color:var(--muted);font-size:12.5px;font-weight:400}
+
+.dish{background:var(--white);border-radius:14px;padding:12px;display:flex;gap:10px;align-items:center}
+.dish div{flex:1;min-width:0}
+.dish b{display:block}
+.dish small{color:var(--muted);font-size:12.5px;display:block}
+.dish .price{font-weight:700;margin-top:4px;font-size:14px}
+.plus{flex:none;width:36px;height:36px;border-radius:50%;border:0;background:var(--brand);color:#fff;font-size:22px;line-height:1;position:relative}
+.plus i{position:absolute;top:-5px;right:-5px;min-width:19px;height:19px;border-radius:10px;background:var(--ink);color:#fff;font:700 11px/19px var(--font);font-style:normal;padding:0 4px}
+
+.row{display:flex;justify-content:space-between;gap:10px;padding:10px 2px;border-bottom:1px solid var(--line)}
+.row.total{border:0;font-weight:700;font-size:17px}
+.empty{text-align:center;color:var(--muted);padding:48px 12px}
+
+.toast{position:absolute;left:14px;right:14px;bottom:76px;background:var(--ink);color:#fff;border-radius:12px;padding:11px 14px;font-size:13.5px;z-index:5}
+
+.welcome{flex:1;overflow-y:auto;padding:22px 20px 18px}
+.welcome h2{margin:0 0 10px;font:700 15px/1.3 var(--font);text-transform:uppercase;letter-spacing:.02em}
+.welcome p{margin:0 0 9px;font-size:12px;line-height:1.38;text-align:justify;color:#3b352d}
+.welcome .story{display:block;width:100%;border:0;border-radius:14px;background:var(--brand);color:#fff;font-weight:700;font-size:16px;padding:14px;margin:14px 0}
+.welcome .next{display:block;margin:26px 0 4px auto;border:0;background:transparent;padding:0;
+  font-size:11px;color:#CFC6B8;text-decoration:none}
+
+.veil{position:absolute;inset:0;background:rgba(20,15,10,.5);display:grid;place-items:center;padding:28px;z-index:10}
+.system{width:100%;max-width:280px;background:#F4F2EF;border-radius:16px;overflow:hidden;text-align:center}
+.system p{margin:0;padding:22px 18px;font-weight:700;font-size:16px;line-height:1.3}
+.system div{display:flex;border-top:1px solid #D4D0CA}
+.system button{flex:1;border:0;background:transparent;padding:13px 6px;font-size:15.5px;color:#1763CF}
+.system button+button{border-left:1px solid #D4D0CA;font-weight:700}
+
+.status-screen{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;background:#fff;text-align:center;padding:24px}
+.status-screen strong{font:700 34px/1 var(--font)}
+.status-screen code{font:12px/1.4 ui-monospace,Menlo,Consolas,monospace;color:#9a9a9a}
+
+.done{position:absolute;inset:0;background:var(--ok);color:#fff;z-index:20;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;text-align:center;padding:28px;
+  animation:pulse var(--t,900ms) ease-in forwards}
+.done h3{margin:0;font:700 26px/1.1 var(--font-head)}
+.done p{margin:0;font-size:14.5px;line-height:1.4}
+.done .code{font:700 28px/1 ui-monospace,Menlo,Consolas,monospace;letter-spacing:.3em;margin-top:6px}
+@keyframes pulse{0%{opacity:0}12%{opacity:1}70%{opacity:1}100%{opacity:0}}
+@media (prefers-reduced-motion:reduce){.done{animation:none}}
+</style>
+</head>
+<body>
+
+<div class="page">
+  <div class="phone"><div class="screen" id="screen" aria-live="polite"></div></div>
+
+  <aside class="card">
+    <span class="label">Lesson 01 · app to analyse</span>
+    <h1>Morsel, food delivery</h1>
+    <p>Use the app as you would one you have just downloaded, and try to do these three things. Write down every moment you hesitate.</p>
+    <ol>
+      <li>Understand what the app does and get to the list of restaurants.</li>
+      <li>Order a piadina from “Da Nilde”.</li>
+      <li>Find out what time the order will arrive.</li>
+    </ol>
+    <div class="jumps">
+      <button class="restart" data-jump="start">Start over</button>
+      <span class="label lecturer" hidden>For the lecturer</span>
+      <button class="lecturer" data-jump="permissions" hidden>Go to permissions</button>
+      <button class="lecturer" data-jump="cart" hidden>Go to the cart</button>
+      <button class="lecturer" data-jump="status" hidden>Go to order status</button>
+    </div>
+  </aside>
+</div>
+
+<script>
+(function () {
+  'use strict';
+
+  var PLACES = [
+    { id: 'nilde', name: 'Da Nilde', kind: 'Piadina from Romagna', time: '20–30 min', color: '#B8612B', menu: [
+      { n: 'Piadina with prosciutto and squacquerone', d: 'With rocket', p: 7.50 },
+      { n: 'Piadina with wild greens and sardines', d: 'Sautéed field greens', p: 8.00 },
+      { n: 'Crescione with pumpkin and potato', d: 'Folded and cooked on the griddle', p: 6.50 },
+      { n: 'Still water 50 cl', d: '', p: 1.50 } ] },
+    { id: 'lantern', name: 'Wok Lantern', kind: 'Chinese', time: '30–40 min', color: '#8E2F3C', menu: [
+      { n: 'Steamed dumplings (6 pcs)', d: 'Pork and cabbage', p: 6.00 },
+      { n: 'Stir-fried rice noodles', d: 'Vegetables and egg', p: 8.50 },
+      { n: 'Almond chicken', d: 'With white rice', p: 9.50 } ] },
+    { id: 'forno', name: 'Forno Bruciato', kind: 'Pizza by the slice', time: '25–35 min', color: '#3F3A34', menu: [
+      { n: 'Margherita', d: 'Double slice', p: 5.00 },
+      { n: 'Potato and rosemary', d: 'Double slice', p: 5.50 },
+      { n: 'Mortadella and pistachio', d: 'Double slice', p: 7.00 } ] },
+    { id: 'green', name: 'Green Raw', kind: 'Bowls and salads', time: '15–25 min', color: '#4D7A45', menu: [
+      { n: 'Salmon and avocado bowl', d: 'Rice, edamame, sesame', p: 11.00 },
+      { n: 'Spelt salad', d: 'Chickpeas, feta, cherry tomatoes', p: 8.50 } ] }
+  ];
+  var DELIVERY = 2.50;
+
+  var S;
+  var timers = [];
+  function freshState() {
+    return { view: 'welcome', story: false, perm: 0, place: null,
+             cart: [], paying: false, done: null, order: false, toast: '' };
+  }
+  function later(fn, ms) { timers.push(setTimeout(fn, ms)); }
+  function clearTimers() { timers.forEach(clearTimeout); timers = []; }
+
+  var screen = document.getElementById('screen');
+  function eur(n) { return '€' + n.toFixed(2); }
+  function findPlace(id) { return PLACES.filter(function (l) { return l.id === id; })[0]; }
+  function items() { return S.cart.reduce(function (a, r) { return a + r.q; }, 0); }
+  function subtotal() { return S.cart.reduce(function (a, r) { return a + r.q * r.p; }, 0); }
+  function qty(name) { var r = S.cart.filter(function (x) { return x.n === name; })[0]; return r ? r.q : 0; }
+
+  var VIEWS = {};
+
+  VIEWS.welcome = function () {
+    return '<div class="welcome">' +
+      '<h2>Welcome to the Morsel Ltd ecosystem for the proximity gastronomic experience</h2>' +
+      '<p>Morsel was born in 2019 from the meeting of logistics expertise, territorial sensitivity and an integrated vision of the taste supply chain, with the aim of enabling new forms of relationship between food-service operators and their reference urban communities, while enhancing local excellence and sustainable innovation processes.</p>' +
+      '<p>Our multichannel platform allows stakeholders to access a range of modular, scalable and interoperable solutions, designed to the highest quality standards and in full compliance with current regulations on food safety, traceability and the processing of personal data pursuant to Regulation (EU) 2016/679.</p>' +
+      '<p>Through a proprietary flow-optimisation algorithm, Morsel ensures the dynamic alignment of supply and demand, reducing distribution inefficiencies and maximising perceived value along the entire life cycle of the interaction, from the discovery phase to post-consumption.</p>' +
+      '<button class="story" data-a="story">Discover our story</button>' +
+      (S.story ?
+        '<p>Founded by three partners with a background in consulting, Morsel closed its first funding round in 2021 and has progressively extended its presence to eleven regional capitals, consolidating strategic partnerships with over four hundred affiliated merchants and obtaining ISO 9001 quality certification.</p>' +
+        '<p>Our mission is to generate positive impact through an inclusive growth model that puts people, territories and the culture of sharing at the centre.</p>' : '') +
+      '<p>By continuing you declare that you have read the privacy notice, the terms of service, the specific conditions applicable to individual merchants and the policy on technical, analytics and profiling cookies, and that you accept any changes that may be made unilaterally.</p>' +
+      '<button class="next" data-a="next">continue</button>' +
+      '</div>';
+  };
+
+  VIEWS.permissions = function () {
+    var text = S.perm === 0
+      ? '“Morsel” would like to use your location'
+      : '“Morsel” would like to send you notifications';
+    return '<div class="veil"><div class="system" role="alertdialog" aria-label="Permission request">' +
+      '<p>' + text + '</p>' +
+      '<div><button data-a="perm" data-v="no">Don’t Allow</button>' +
+      '<button data-a="perm" data-v="yes">Allow</button></div>' +
+      '</div></div>';
+  };
+
+  VIEWS.home = function () {
+    var h = '<div class="address"><small>Deliver to</small><strong>Via dei Mille 12</strong></div><div class="body">';
+    if (S.order) {
+      h += '<button class="live-order" data-a="status"><span>1 order in progress</span><span>›</span></button>';
+    }
+    h += PLACES.map(function (l) {
+      return '<button class="place" data-a="place" data-v="' + l.id + '">' +
+        '<div class="photo" style="--c:' + l.color + '">' + l.name + '</div>' +
+        '<div class="info"><b>' + l.name + '<small>' + l.kind + '</small></b><span>' + l.time + '</span></div></button>';
+    }).join('');
+    return h + '</div>' + nav('home');
+  };
+
+  VIEWS.place = function () {
+    var l = findPlace(S.place);
+    var h = '<div class="header"><button class="round" data-a="home" aria-label="Back">‹</button><h2>' + l.name + '</h2><span class="gap"></span></div><div class="body">';
+    h += l.menu.map(function (m, i) {
+      var q = qty(m.n);
+      return '<div class="dish"><div><b>' + m.n + '</b>' + (m.d ? '<small>' + m.d + '</small>' : '') +
+        '<span class="price">' + eur(m.p) + '</span></div>' +
+        '<button class="plus" data-a="add" data-v="' + i + '" aria-label="Add ' + m.n + '">+' + (q ? '<i>' + q + '</i>' : '') + '</button></div>';
+    }).join('');
+    h += '</div>';
+    if (items()) {
+      h += '<div class="bar"><button class="btn" data-a="cart"><span>View cart · ' + items() + '</span><span>' + eur(subtotal()) + '</span></button></div>';
+    }
+    return h;
+  };
+
+  VIEWS.cart = function () {
+    var h = '<div class="header"><button class="round" data-a="cart-back" aria-label="Back">‹</button><h2>Cart</h2><span class="gap"></span></div>';
+    if (!items()) {
+      return h + '<div class="body"><p class="empty">Your cart is empty.</p></div>' + nav('');
+    }
+    h += '<div class="body"><div>' + S.cart.map(function (r) {
+      return '<div class="row"><span>' + r.q + ' × ' + r.n + '</span><span>' + eur(r.q * r.p) + '</span></div>';
+    }).join('') +
+      '<div class="row"><span>Delivery</span><span>' + eur(DELIVERY) + '</span></div>' +
+      '<div class="row total"><span>Total</span><span>' + eur(subtotal() + DELIVERY) + '</span></div></div></div>';
+    h += '<div class="bar"><button class="btn center" data-a="pay"' + (S.paying ? ' disabled' : '') + '>' +
+      (S.paying ? 'Sending your order…' : 'Order and pay ' + eur(subtotal() + DELIVERY)) + '</button></div>';
+    return h;
+  };
+
+  VIEWS.status = function () {
+    return '<div class="status-screen" role="alert">' +
+      '<strong>Error 429</strong>' +
+      '<code>ERR_TOO_MANY_REQUESTS · 0x1AD</code>' +
+      '</div>';
+  };
+
+  function nav(on) {
+    function item(id, icon, name) {
+      return '<button data-a="nav" data-v="' + id + '" class="' + (on === id ? 'active' : '') + '"><b>' + icon + '</b>' + name + '</button>';
+    }
+    return '<nav class="nav">' + item('home', '⌂', 'Home') + item('orders', '☰', 'Orders') + item('profile', '☺', 'Profile') + '</nav>';
+  }
+
+  var T = 900;
+
+  function doneScreen() {
+    var c = S.done;
+    return '<div class="done" role="status" style="--t:' + T + 'ms">' +
+      '<h3>Order confirmed!</h3>' +
+      '<p>Expected arrival at ' + c.time + '<br>Your rider is ' + c.rider + '<br>Tell them this code on delivery:</p>' +
+      '<div class="code">' + c.code + '</div></div>';
+  }
+
+  function pay() {
+    if (S.paying) { return; }
+    S.paying = true; draw();
+    later(function () {
+      var at = new Date(Date.now() + 35 * 60000);
+      S.done = {
+        time: ('0' + at.getHours()).slice(-2) + ':' + ('0' + at.getMinutes()).slice(-2),
+        rider: 'Tobia',
+        code: String(1000 + Math.floor(Math.random() * 9000))
+      };
+      S.paying = false; S.cart = []; S.order = true; S.view = 'home';
+      draw();
+      later(function () { S.done = null; draw(); }, T);
+    }, 700);
+  }
+
+  function draw() {
+    screen.innerHTML = VIEWS[S.view]() +
+      (S.done ? doneScreen() : '') +
+      (S.toast ? '<div class="toast" role="status">' + S.toast + '</div>' : '');
+  }
+  function go(name) { S.view = name; S.toast = ''; draw(); }
+  function toast(text) {
+    S.toast = text; draw();
+    later(function () { S.toast = ''; draw(); }, 4000);
+  }
+
+  var ACTIONS = {
+    story: function () { S.story = true; draw(); },
+    next: function () { S.perm = 0; go('permissions'); },
+    perm: function () {
+      if (S.perm === 0) { S.perm = 1; draw(); } else { go('home'); }
+    },
+    place: function (id) { S.place = id; go('place'); },
+    home: function () { go('home'); },
+    add: function (i) {
+      var m = findPlace(S.place).menu[+i];
+      var r = S.cart.filter(function (x) { return x.n === m.n; })[0];
+      if (r) { r.q++; } else { S.cart.push({ n: m.n, p: m.p, q: 1 }); }
+      draw();
+    },
+    cart: function () { go('cart'); },
+    'cart-back': function () { go(S.place ? 'place' : 'home'); },
+    pay: pay,
+    status: function () { go('status'); },
+    nav: function (id) {
+      if (id === 'home') { go('home'); }
+      else if (id === 'orders') {
+        if (S.order) { go('status'); } else { toast('You haven’t placed any orders yet.'); }
+      } else { toast('The profile isn’t part of this prototype.'); }
+    }
+  };
+
+  screen.addEventListener('click', function (e) {
+    var b = e.target.closest('[data-a]');
+    if (!b || b.disabled) { return; }
+    var f = ACTIONS[b.getAttribute('data-a')];
+    if (f) { f(b.getAttribute('data-v')); }
+  });
+
+  function restart() { clearTimers(); S = freshState(); }
+  document.querySelector('.jumps').addEventListener('click', function (e) {
+    var b = e.target.closest('[data-jump]');
+    if (!b) { return; }
+    var where = b.getAttribute('data-jump');
+    restart();
+    if (where === 'permissions') { S.view = 'permissions'; }
+    if (where === 'cart') {
+      S.place = 'nilde';
+      S.cart = [{ n: 'Piadina with prosciutto and squacquerone', p: 7.50, q: 1 }, { n: 'Still water 50 cl', p: 1.50, q: 1 }];
+      S.view = 'cart';
+    }
+    if (where === 'status') { S.order = true; S.view = 'home'; }
+    draw();
+  });
+
+  // the jump buttons are for the lecturer only: open the page with ?lecturer to see them
+  if (/[?&]lecturer\b/.test(location.search)) {
+    document.querySelectorAll('.lecturer').forEach(function (el) { el.hidden = false; });
+  }
+
+  restart();
+  draw();
+})();
+</script>
+</body>
+</html>
