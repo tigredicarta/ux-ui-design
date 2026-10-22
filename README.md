@@ -7,6 +7,9 @@ Course materials for **UX & UI Design** at NABA, academic year 2026–27, by Lor
 <a href="https://tigredicarta.github.io/ux-ui-design/lesson-02/slides/"><img src="assets/readme/card-l02.png" alt="Lesson 02 · Structure, grids, spacing" width="49%"></a>
 </p>
 <p>
+<a href="https://tigredicarta.github.io/ux-ui-design/lesson-03/slides/"><img src="assets/readme/card-l03.png" alt="Lesson 03 · Ask instead of guessing" width="49%"></a>
+</p>
+<p>
 <a href="https://tigredicarta.github.io/ux-ui-design/lesson-01/morsel/"><img src="assets/readme/card-morsel.png" alt="Morsel, the app to analyse" width="49%"></a>
 <a href="https://tigredicarta.github.io/ux-ui-design/brief/"><img src="assets/readme/card-brief.png" alt="Final project brief" width="49%"></a>
 </p>
