@@ -31,7 +31,7 @@ button:focus-visible,a:focus-visible,input:focus-visible { outline:3px solid #77
 .brand > a { text-decoration:none; font-size:38px; font-weight:700; line-height:1; letter-spacing:-2.7px; display:flex; align-items:center; gap:5px; }
 .brand-dot { background:var(--yellow); width:11px; height:11px; border-radius:50%; margin-top:15px; }
 .brand > span { font-size:11px; line-height:1.4; text-align:right; color:var(--muted); }
-main { min-height:0; flex:1; overflow-y:auto; overscroll-behavior:contain; padding:27px 25px 30px; }
+main { min-height:0; flex:1; overflow-y:auto; overscroll-behavior:contain; padding:27px 25px 48px; }
 main:focus { outline:none; }
 h1,h2,h3,p { margin:0; }
 h1 { font-size:30px; line-height:1.13; letter-spacing:-1px; font-weight:650; }
