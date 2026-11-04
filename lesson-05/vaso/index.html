@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#ffea04">
+  <title>Vaso · A little care, in one place</title>
+  <link rel="stylesheet" href="vaso.css">
+</head>
+<body>
+  <div class="demo-context"><a href="../index.html">← Lesson 05</a><span>Vaso · Interactive teaching prototype</span></div>
+  <div class="demo-workspace">
+    <aside class="lesson-panel">
+      <p class="eyebrow">Lesson 05 · Try the same task</p>
+      <h2 class="panel-title">You are leaving for two weeks.</h2>
+      <p>A friend will care for your plants. Pause your reminders until you return.</p>
+      <div class="version-picker" role="group" aria-label="App version">
+        <button type="button" data-version="first" aria-pressed="false"><span>A</span>First draft</button>
+        <button type="button" data-version="improved" aria-pressed="true"><span>B</span>Reorganised</button>
+      </div>
+      <p id="task-result" class="task-result" role="status" hidden></p>
+      <button type="button" class="restart" id="restart-task">↻ Restart the task</button>
+      <details class="teaching-notes">
+        <summary>Show the design choices</summary>
+        <div id="design-notes"></div>
+        <label for="navigation-example">Explore navigation layouts</label>
+        <select id="navigation-example"><option value="tabs">Bottom bar</option><option value="menu">Menu</option><option value="hub">Home with links</option></select>
+        <p class="teaching-hint">Available in version B. The contents stay the same while the navigation changes.</p>
+        <h2>Your route</h2>
+        <ol id="route-trace" aria-live="polite"></ol>
+      </details>
+    </aside>
+  <div class="app-shell">
+    <header class="brand"><a href="#plants" aria-label="Vaso, my plants">vaso<span class="brand-dot"></span></a><span>A little care,<br>in one place.</span></header>
+    <main id="screen" tabindex="-1"></main>
+    <nav class="main-nav" aria-label="Main sections"></nav>
+  </div></div>
+  <footer class="demo-footer">Fictional plants and schedules for a classroom demonstration.<br>No notifications are sent. Changes stay in this browser. <button id="reset" type="button">Reset demo</button></footer>
+  <div id="notice" role="status" aria-live="polite"></div>
+  <script src="vaso.js"></script>
+</body>
+</html>

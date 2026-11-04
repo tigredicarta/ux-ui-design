@@ -10,6 +10,7 @@ Course materials for **UX & UI Design** at NABA, academic year 2026–27, by Lor
 </p>
 <p>
 <a href="https://tigredicarta.github.io/ux-ui-design/lesson-03/slides/"><img src="assets/readme/card-l03.png" alt="Lesson 03 · Ask instead of guessing" width="49%"></a>
+<a href="https://tigredicarta.github.io/ux-ui-design/lesson-05/slides/"><img src="assets/readme/card-l05.png" alt="Lesson 05 · How an app is organised" width="49%"></a>
 </p>
 
 ## Exercises
