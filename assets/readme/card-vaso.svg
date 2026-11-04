@@ -1,6 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="880" viewBox="0 0 1200 880" role="img" aria-labelledby="title desc">
   <title id="title">Vaso interactive teaching prototype</title>
   <desc id="desc">A NABA course card showing the Vaso plant-care prototype.</desc>
+  <defs><clipPath id="vaso-screen"><rect x="-10.5" y="-10.5" width="241" height="507" rx="34.5"/></clipPath></defs>
   <rect width="1200" height="880" fill="#fff"/>
   <path d="M790 0H1200V678H675Z" fill="#ffea04"/>
   <rect x="0" y="0" width="1200" height="880" fill="none" stroke="#000" stroke-width="4"/>
@@ -18,6 +19,7 @@
   <g transform="translate(874 72)">
     <rect x="0" y="0" width="244" height="510" rx="36" fill="#000"/>
     <rect x="-12" y="-12" width="244" height="510" rx="36" fill="#fff" stroke="#000" stroke-width="3"/>
+    <g clip-path="url(#vaso-screen)">
     <rect x="61" y="32" width="118" height="15" rx="5" fill="#000"/>
     <text x="16" y="90" fill="#000" font-family="Arial,sans-serif" font-size="29" font-weight="700" letter-spacing="-2">vaso</text>
     <circle cx="87" cy="83" r="6" fill="#ffea04"/>
@@ -33,11 +35,13 @@
     <line x1="16" y1="306" x2="217" y2="306" stroke="#dedfd6"/>
     <text x="16" y="328" fill="#000" font-family="Arial,sans-serif" font-size="11">Water the monstera</text>
     <text x="16" y="344" fill="#62645d" font-family="Arial,sans-serif" font-size="9">Tomorrow · 8:00</text>
-    <rect x="0" y="428" width="244" height="70" rx="0 0 34 34" fill="#fff" stroke="#dedfd6"/>
-    <rect x="16" y="442" width="62" height="40" rx="9" fill="#ffea04"/>
-    <text x="29" y="467" fill="#000" font-family="Arial,sans-serif" font-size="9" font-weight="700">Plants</text>
-    <text x="99" y="467" fill="#62645d" font-family="Arial,sans-serif" font-size="9">Reminders</text>
-    <text x="171" y="467" fill="#62645d" font-family="Arial,sans-serif" font-size="9">Guides</text>
+    <rect x="-10.5" y="428" width="241" height="70" fill="#fff"/>
+    <path d="M-10.5 428H230.5" stroke="#dedfd6"/>
+    <rect x="79" y="442" width="69" height="40" rx="9" fill="#ffea04"/>
+    <text x="39" y="467" text-anchor="middle" fill="#62645d" font-family="Arial,sans-serif" font-size="9">Plants</text>
+    <text x="113.5" y="467" text-anchor="middle" fill="#000" font-family="Arial,sans-serif" font-size="9" font-weight="700">Reminders</text>
+    <text x="187" y="467" text-anchor="middle" fill="#62645d" font-family="Arial,sans-serif" font-size="9">Guides</text>
+    </g>
   </g>
   <text x="72" y="589" fill="#616161" font-family="Arial,sans-serif" font-size="11" font-weight="700" letter-spacing="1.4">INTERACTIVE TEACHING PROTOTYPE</text>
   <text x="72" y="617" fill="#171717" font-family="Arial,sans-serif" font-size="16">A plant-care app used in Lesson 05 to explore tasks, groups and navigation.</text>
@@ -46,7 +50,7 @@
   <path d="M234 708h10l-10 40h-10z" fill="#000"/>
   <text x="56" y="735" fill="#fff" font-family="Arial,sans-serif" font-size="20" font-weight="700" letter-spacing="1.6">PROTOTYPE</text>
   <text x="44" y="810" fill="#000" font-family="Arial,sans-serif" font-size="49" font-weight="700" letter-spacing="-2.8">Vaso, the app to explore</text>
-  <text x="987" y="730" fill="#626262" font-family="Arial,sans-serif" font-size="20">Open to everyone</text>
+  <text x="1156" y="730" text-anchor="end" fill="#626262" font-family="Arial,sans-serif" font-size="20">Open to everyone</text>
   <rect x="1028" y="781" width="128" height="54" fill="#ffea04" stroke="#000" stroke-width="2"/>
   <text x="1047" y="817" fill="#000" font-family="Arial,sans-serif" font-size="21" font-weight="700">APP →</text>
 </svg>
