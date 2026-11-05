@@ -19,7 +19,7 @@ Practice activities and homework to accompany the lessons.
 
 <p>
 <a href="https://tigredicarta.github.io/ux-ui-design/lesson-01/morsel/"><img src="assets/readme/card-morsel.png" alt="Morsel, the app to analyse" width="49%"></a>
-<a href="https://tigredicarta.github.io/ux-ui-design/lesson-05/vaso/"><img src="assets/readme/card-vaso.svg" alt="Vaso, the interactive prototype for Lesson 05" width="49%"></a>
+<a href="https://tigredicarta.github.io/ux-ui-design/lesson-05/vaso/"><img src="assets/readme/card-vaso.png" alt="Vaso, the interactive prototype for Lesson 05" width="49%"></a>
 </p>
 
 ## Final project brief
