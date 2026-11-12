@@ -13,6 +13,10 @@ Course materials for **UX & UI Design** at NABA, academic year 2026–27, by Lor
 <a href="https://tigredicarta.github.io/ux-ui-design/lesson-05/slides/"><img src="assets/readme/card-l05.png" alt="Lesson 05 · How an app is organised" width="49%"></a>
 </p>
 
+<p>
+<a href="https://tigredicarta.github.io/ux-ui-design/lesson-06/slides/"><img src="assets/readme/card-l06.png" alt="Lesson 06 · Interviews and wireframes" width="49%"></a>
+</p>
+
 ## Exercises
 
 Practice activities and homework to accompany the lessons.
