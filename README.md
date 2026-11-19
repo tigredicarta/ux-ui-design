@@ -15,6 +15,7 @@ Course materials for **UX & UI Design** at NABA, academic year 2026–27, by Lor
 
 <p>
 <a href="https://tigredicarta.github.io/ux-ui-design/lesson-06/slides/"><img src="assets/readme/card-l06.png" alt="Lesson 06 · Interviews and wireframes" width="49%"></a>
+<a href="https://tigredicarta.github.io/ux-ui-design/lesson-07/slides/"><img src="assets/readme/card-l07.png" alt="Lesson 07 · Reviewing AI-generated work" width="49%"></a>
 </p>
 
 ## Exercises
