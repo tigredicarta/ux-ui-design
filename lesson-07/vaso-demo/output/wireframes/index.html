@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Vaso wireframes: Pause reminders while away</title>
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; padding: 24px; background: #fff; color: #000; font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; font-size: 14px; }
+  h1 { font-size: 18px; margin: 0 0 4px; }
+  p.note { margin: 0 0 20px; font-size: 13px; }
+  .row { display: flex; gap: 24px; align-items: flex-start; overflow-x: auto; padding-bottom: 16px; }
+  .col { flex: 0 0 360px; }
+  .cap { font-size: 12px; margin-bottom: 6px; height: 34px; }
+  .cap b { display: block; }
+  .frame { width: 360px; height: 740px; border: 2px solid #000; border-radius: 24px; display: flex; flex-direction: column; overflow: hidden; background: #fff; }
+  .top { padding: 18px 16px 12px; border-bottom: 2px solid #000; font-weight: bold; font-size: 18px; }
+  .top span { font-weight: normal; margin-right: 8px; }
+  .body { flex: 1; padding: 16px; overflow: hidden; }
+  .nav { display: flex; border-top: 2px solid #000; }
+  .nav div { flex: 1; text-align: center; padding: 14px 4px; font-size: 13px; border-left: 1px solid #000; }
+  .nav div:first-child { border-left: 0; }
+  .nav .on { background: #000; color: #fff; font-weight: bold; }
+  h2 { font-size: 13px; margin: 18px 0 8px; text-transform: none; }
+  h2:first-child { margin-top: 0; }
+  .item { border: 1px solid #000; padding: 12px; margin-bottom: 8px; display: flex; justify-content: space-between; }
+  .item small { display: block; font-size: 12px; margin-top: 2px; }
+  .listrow { border: 1px solid #000; padding: 14px 12px; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center; }
+  .listrow.strong { border-width: 3px; }
+  .banner { border: 2px solid #000; padding: 12px; margin-bottom: 16px; }
+  .banner.dash { border-style: dashed; }
+  .field { margin-bottom: 14px; }
+  .field label { display: block; font-size: 12px; margin-bottom: 4px; }
+  .input { border: 1px solid #000; padding: 12px; display: flex; justify-content: space-between; }
+  .input.err { border-width: 3px; }
+  .errmsg { margin-top: 6px; font-size: 12px; font-weight: bold; }
+  .btn { display: block; width: 100%; padding: 14px; text-align: center; border: 2px solid #000; margin-top: 10px; font-weight: bold; }
+  .btn.primary { background: #000; color: #fff; }
+  .btn.off { border-style: dashed; color: #555; font-weight: normal; }
+  .big { font-size: 22px; font-weight: bold; margin: 4px 0 8px; }
+  .toggle { border: 1px solid #000; padding: 2px 10px; font-size: 12px; }
+  .sum { border: 1px solid #000; padding: 12px; margin: 12px 0; }
+  .sum div { display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px dotted #000; }
+  .sum div:last-child { border-bottom: 0; }
+  .muted { color: #444; font-size: 13px; }
+</style>
+</head>
+<body>
+<h1>Vaso: pause reminders while away</h1>
+<p class="note">Low-fidelity wireframes. Dates are placeholders. Step numbers match output/flow/flow.md.</p>
+
+<div class="row">
+
+<!-- Screen 1 -->
+<div class="col">
+  <div class="cap"><b>Screen 1 · Flow steps 1-3</b>Reminders overview, pause is off</div>
+  <div class="frame" id="screen-1">
+    <div class="top">Reminders</div>
+    <div class="body">
+      <h2>This week</h2>
+      <div class="item"><div>Water Plant A<small>Mon</small></div><div>[ ]</div></div>
+      <div class="item"><div>Water Plant B<small>Wed</small></div><div>[ ]</div></div>
+      <div class="item"><div>Feed Plant A<small>Fri</small></div><div>[ ]</div></div>
+      <h2>Settings</h2>
+      <div class="listrow"><span>Get notified in the evening</span><span class="toggle">On</span></div>
+      <div class="listrow strong"><span>Pause while away<br><small>Off</small></span><span>&gt;</span></div>
+    </div>
+    <div class="nav"><div>My plants</div><div class="on">Reminders</div><div>Care guides</div></div>
+  </div>
+</div>
+
+<!-- Screen 2 -->
+<div class="col">
+  <div class="cap"><b>Screen 2 · Flow steps 4-5</b>Pause while away: choose dates</div>
+  <div class="frame" id="screen-2">
+    <div class="top"><span>&lt;</span>Pause while away</div>
+    <div class="body">
+      <p>Choose when you leave and when you are back. Reminders stop on the first date and restart on the second.</p>
+      <div class="field"><label>Start date</label><div class="input"><span>Sat 6 Dec</span><span>[calendar]</span></div></div>
+      <div class="field"><label>Return date</label><div class="input"><span>Sat 20 Dec</span><span>[calendar]</span></div></div>
+      <p class="muted">14 days away</p>
+      <div class="btn primary">Continue</div>
+    </div>
+    <div class="nav"><div>My plants</div><div class="on">Reminders</div><div>Care guides</div></div>
+  </div>
+</div>
+
+<!-- Screen 3 -->
+<div class="col">
+  <div class="cap"><b>Screen 3 · Flow steps 6 (No)</b>Return date is not after start date</div>
+  <div class="frame" id="screen-3">
+    <div class="top"><span>&lt;</span>Pause while away</div>
+    <div class="body">
+      <p>Choose when you leave and when you are back. Reminders stop on the first date and restart on the second.</p>
+      <div class="field"><label>Start date</label><div class="input"><span>Sat 6 Dec</span><span>[calendar]</span></div></div>
+      <div class="field"><label>Return date</label><div class="input err"><span>Mon 1 Dec</span><span>[calendar]</span></div>
+        <div class="errmsg">Return date must be after the start date.</div></div>
+      <div class="btn off">Continue (not available)</div>
+    </div>
+    <div class="nav"><div>My plants</div><div class="on">Reminders</div><div>Care guides</div></div>
+  </div>
+</div>
+
+<!-- Screen 4 -->
+<div class="col">
+  <div class="cap"><b>Screen 4 · Flow steps 7-8</b>Who looks after your plants</div>
+  <div class="frame" id="screen-4">
+    <div class="top"><span>&lt;</span>Who looks after your plants?</div>
+    <div class="body">
+      <p>Add the friend who will water your plants. We will send them the care plan for these dates.</p>
+      <div class="field"><label>Friend's name</label><div class="input"><span>Name</span></div></div>
+      <div class="field"><label>Friend's email (required)</label><div class="input"><span>name@email.com</span></div></div>
+      <div class="listrow"><span>Send them watering reminders</span><span class="toggle">On</span></div>
+      <div class="btn off">Continue (add an email first)</div>
+    </div>
+    <div class="nav"><div>My plants</div><div class="on">Reminders</div><div>Care guides</div></div>
+  </div>
+</div>
+<!-- Screen 5 -->
+<div class="col">
+  <div class="cap"><b>Screen 5 · Flow steps 9-10</b>Check the pause and confirm</div>
+  <div class="frame" id="screen-5">
+    <div class="top"><span>&lt;</span>Check your pause</div>
+    <div class="body">
+      <div class="sum">
+        <div><span>Reminders stop</span><b>Sat 6 Dec</b></div>
+        <div><span>Reminders restart</span><b>Sat 20 Dec</b></div>
+        <div><span>Length</span><b>14 days</b></div>
+      </div>
+      <p class="muted">Evening notifications are also paused. You can change or end the pause at any time.</p>
+      <div class="btn primary">Pause reminders</div>
+      <div class="btn">Back</div>
+    </div>
+    <div class="nav"><div>My plants</div><div class="on">Reminders</div><div>Care guides</div></div>
+  </div>
+</div>
+
+<!-- Screen 6 -->
+<div class="col">
+  <div class="cap"><b>Screen 6 · Flow steps 11</b>Result: paused state</div>
+  <div class="frame" id="screen-6">
+    <div class="top"><span>&lt;</span>Pause while away</div>
+    <div class="body">
+      <div class="banner">
+        <div class="muted">Status</div>
+        <div class="big">Paused until Sat 20 Dec</div>
+        <div>Reminders restart on Sat 20 Dec.</div>
+      </div>
+      <div class="sum">
+        <div><span>Started</span><b>Sat 6 Dec</b></div>
+        <div><span>Returns</span><b>Sat 20 Dec</b></div>
+      </div>
+    </div>
+    <div class="nav"><div>My plants</div><div class="on">Reminders</div><div>Care guides</div></div>
+  </div>
+</div>
+
+<!-- Screen 7 -->
+<div class="col">
+  <div class="cap"><b>Screen 7 · Flow steps 12</b>Reminders overview while paused</div>
+  <div class="frame" id="screen-7">
+    <div class="top">Reminders</div>
+    <div class="body">
+      <div class="banner">
+        <b>Paused until Sat 20 Dec</b><br>
+        <span class="muted">Reminders restart on that day.</span><br><br>
+        <u>Pause while away &gt;</u>
+      </div>
+      <h2>This week</h2>
+      <div class="banner dash muted">No reminders while paused.</div>
+      <h2>Settings</h2>
+      <div class="listrow"><span>Get notified in the evening</span><span class="toggle">Paused</span></div>
+    </div>
+    <div class="nav"><div>My plants</div><div class="on">Reminders</div><div>Care guides</div></div>
+  </div>
+</div>
+
+<!-- Screen 8 -->
+<div class="col">
+  <div class="cap"><b>Screen 8 · Flow steps 13</b>Return date: reminders are on again</div>
+  <div class="frame" id="screen-8">
+    <div class="top">Reminders</div>
+    <div class="body">
+      <div class="banner">Welcome back. Reminders are on again.</div>
+      <h2>This week</h2>
+      <div class="item"><div>Water Plant A<small>Mon</small></div><div>[ ]</div></div>
+      <div class="item"><div>Water Plant B<small>Wed</small></div><div>[ ]</div></div>
+      <h2>Settings</h2>
+      <div class="listrow"><span>Get notified in the evening</span><span class="toggle">On</span></div>
+      <div class="listrow"><span>Pause while away<br><small>Off</small></span><span>&gt;</span></div>
+    </div>
+    <div class="nav"><div>My plants</div><div class="on">Reminders</div><div>Care guides</div></div>
+  </div>
+</div>
+
+</div>
+</body>
+</html>
