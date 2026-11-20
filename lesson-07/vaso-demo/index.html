@@ -15,6 +15,8 @@
   a.dl:hover { background: #000; color: #ffea04; }
   a.card b { display: block; font-size: 20px; margin-bottom: 4px; }
   ul { padding-left: 20px; line-height: 1.7; }
+  pre.tree { font: 14px/1.7 ui-monospace, Menlo, monospace; background: #f2f2f2; padding: 16px 18px; border-radius: 6px; overflow-x: auto; }
+  pre.tree a { color: #000; }
 </style>
 </head>
 <body>
@@ -24,13 +26,18 @@
 <a class="card" href="output/flow/"><b>Flow</b>Actions and checks of the task, as a diagram.</a>
 <a class="card" href="output/wireframes/"><b>Wireframes</b>The screens of the task, one frame per screen.</a>
 <a class="dl" href="vaso-demo.zip" download>Download the project folder (.zip) ↓</a>
-<p>The folder is like yours after Lesson 6: open it in your agent app. Inside:</p>
-<ul>
-<li><a href="README.md">README.md</a> — the brief</li>
-<li><a href="research/scenario.md">research/scenario.md</a></li>
-<li><a href="architecture/app-map.md">architecture/app-map.md</a> — map and navigation from Lesson 5</li>
-<li><a href="output/flow/flow.md">output/flow/flow.md</a> — the flow as text and Mermaid</li>
-</ul>
+<p>The folder has the same structure as yours after Lesson 6. Unzip it and open the <b>vaso</b> folder in your agent app.</p>
+<pre class="tree">vaso/
+  <a href="README.md">README.md</a>            the brief
+  research/
+    <a href="research/scenario.md">scenario.md</a>        scenario and card sorting (Lesson 5)
+  concept/
+    <a href="concept/concept.md">concept.md</a>
+  architecture/
+    <a href="architecture/app-map.md">app-map.md</a>         map and navigation (Lesson 5)
+  output/
+    flow/          <a href="output/flow/flow.md">flow.md</a> · <a href="output/flow/">index.html</a>
+    wireframes/    <a href="output/wireframes/">index.html</a></pre>
 </main>
 </body>
 </html>

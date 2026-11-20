@@ -27,11 +27,8 @@ Practice activities and homework to accompany the lessons.
 <a href="https://tigredicarta.github.io/ux-ui-design/lesson-05/vaso/"><img src="assets/readme/card-vaso.png" alt="Vaso, the interactive prototype for Lesson 05" width="49%"></a>
 </p>
 <p>
-<a href="https://tigredicarta.github.io/ux-ui-design/lesson-07/vaso-demo/output/flow/"><img src="assets/readme/card-l07-vaso-flow.png" alt="Vaso flow, the AI draft for Lesson 07" width="49%"></a>
-<a href="https://tigredicarta.github.io/ux-ui-design/lesson-07/vaso-demo/output/wireframes/"><img src="assets/readme/card-l07-vaso-wireframes.png" alt="Vaso wireframes, the AI draft for Lesson 07" width="49%"></a>
+<a href="https://tigredicarta.github.io/ux-ui-design/lesson-07/vaso-demo/"><img src="assets/readme/card-l07-vaso.png" alt="Vaso flow + wireframes, the AI draft for Lesson 07" width="49%"></a>
 </p>
-
-Vaso project folder for Lesson 07: [download (.zip)](https://tigredicarta.github.io/ux-ui-design/lesson-07/vaso-demo/vaso-demo.zip) · [all files](https://tigredicarta.github.io/ux-ui-design/lesson-07/vaso-demo/)
 
 ## Final project brief
 
