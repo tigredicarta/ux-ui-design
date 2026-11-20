@@ -18,6 +18,7 @@ Course materials for **UX & UI Design** at NABA, academic year 2026–27, by Lor
 <a href="https://tigredicarta.github.io/ux-ui-design/lesson-07/slides/"><img src="assets/readme/card-l07.png" alt="Lesson 07 · Reviewing AI-generated work" width="49%"></a>
 </p>
 
+**Lesson 07 · Vaso demo (AI draft):** [flow](https://tigredicarta.github.io/ux-ui-design/lesson-07/vaso-demo/output/flow/) · [wireframes](https://tigredicarta.github.io/ux-ui-design/lesson-07/vaso-demo/output/wireframes/) · [project files](https://tigredicarta.github.io/ux-ui-design/lesson-07/vaso-demo/)
 ## Exercises
 
 Practice activities and homework to accompany the lessons.
